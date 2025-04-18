@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #eaeded;
-    color: #0f1111;
+    background-color: #121212;
+    color: #ffffff;
 }
 
 /* Navigation Bar */
@@ -16,29 +16,35 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #131921;
-    padding: 10px 0;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
     color: white;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-nav img {
-    width: 100px;
-    margin: 0 10px;
+.logo {
+    height: 50px;
     object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .nav-country {
     display: flex;
     align-items: center;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .nav-country i {
     font-size: 16px;
-    margin-right: 5px;
+    margin-right: 8px;
+    color: #ff9900;
 }
 
 .nav-country div p {
@@ -55,61 +61,73 @@ nav img {
     display: flex;
     align-items: center;
     flex: 0.8;
-    background-color: white;
-    border-radius: 4px;
-    margin: 0 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 0 15px;
+    transition: all 0.3s;
+}
+
+.nav-search:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .nav-search-category {
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #e6e6e6;
-    border-radius: 4px 0 0 4px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px 0 0 8px;
     cursor: pointer;
 }
 
 .nav-search-category p {
     font-size: 12px;
-    color: #0f1111;
+    color: #ffffff;
     margin-right: 5px;
 }
 
 .nav-search-category i {
     font-size: 12px;
-    color: #555;
+    color: #ff9900;
 }
 
 .nav-search-input {
     width: 100%;
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
+    background: transparent;
+    color: #ffffff;
+}
+
+.nav-search-input::placeholder {
+    color: #cccccc;
 }
 
 .nav-search-icon {
-    background-color: #febd69;
-    padding: 7px 15px;
-    border-radius: 0 4px 4px 0;
+    background: #ff9900;
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
     cursor: pointer;
 }
 
 .nav-search-icon i {
-    color: #131921;
+    color: #121212;
     font-size: 18px;
 }
 
 .nav-language {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
+    padding: 8px 12px;
     cursor: pointer;
 }
 
 .nav-language i:first-child {
-    margin-right: 5px;
+    margin-right: 8px;
     font-size: 16px;
+    color: #ff9900;
 }
 
 .nav-language p {
@@ -121,7 +139,12 @@ nav img {
 .nav-text {
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
+    padding: 8px 12px;
+    transition: color 0.3s;
+}
+
+.nav-text:hover {
+    color: #ff9900;
 }
 
 .nav-text p {
@@ -145,12 +168,14 @@ nav img {
     align-items: center;
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
+    padding: 8px 12px;
+    position: relative;
 }
 
 .nav-cart i {
     font-size: 20px;
-    margin-right: 5px;
+    margin-right: 8px;
+    color: #ff9900;
 }
 
 .nav-cart h4 {
@@ -158,10 +183,24 @@ nav img {
     font-weight: 500;
 }
 
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff9900;
+    color: #121212;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* User Profile Dropdown */
 .user-profile {
     position: relative;
-    display: inline-block;
     cursor: pointer;
 }
 
@@ -169,24 +208,31 @@ nav img {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #f9f9f9;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 1;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .user-dropdown a {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 13px;
+    transition: background 0.3s;
+}
+
+.user-dropdown a i {
+    margin-right: 10px;
+    color: #ff9900;
 }
 
 .user-dropdown a:hover {
-    background-color: #f1f1f1;
-    color: #e47911;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .user-profile:hover .user-dropdown {
@@ -197,9 +243,10 @@ nav img {
 .nav-bottom {
     display: flex;
     align-items: center;
-    background-color: #232f3e;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 14px;
 }
 
@@ -211,23 +258,31 @@ nav img {
 }
 
 .nav-bottom div i {
-    margin-right: 5px;
+    margin-right: 8px;
     font-size: 16px;
+    color: #ff9900;
 }
 
 .nav-bottom p {
     margin-right: 20px;
     cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-bottom p:hover {
+    color: #ff9900;
 }
 
 /* Welcome Banner */
 .welcome-banner {
-    background-color: #232f3e;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
     color: white;
-    padding: 15px;
+    padding: 20px;
     margin: 20px;
-    border-radius: 4px;
+    border-radius: 8px;
     text-align: center;
+    animation: fadeIn 1s ease-in;
 }
 
 .welcome-banner h2 {
@@ -237,33 +292,30 @@ nav img {
 
 .welcome-banner p {
     font-size: 16px;
-    color: #dddddd;
+    color: #cccccc;
 }
 
 /* Account Section */
 .account-section {
-    background-color: white;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
     padding: 20px;
     margin: 20px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .account-section h2 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #232f3e;
+    color: #ffffff;
     display: flex;
     align-items: center;
 }
 
 .account-section h2 i {
     margin-right: 10px;
-    color: #e47911;
-}
-
-.account-details {
-    margin-bottom: 15px;
+    color: #ff9900;
 }
 
 .account-details p {
@@ -272,23 +324,29 @@ nav img {
 }
 
 .account-details strong {
-    color: #555;
+    color: #ffffff;
 }
 
 .btn {
     display: inline-block;
-    background-color: #febd69;
-    color: #111;
-    padding: 8px 15px;
-    border-radius: 4px;
+    background: #ff9900;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 14px;
-    border: 1px solid #e47911;
+    border: none;
     cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .btn:hover {
-    background-color: #f3a847;
+    background: #e68a00;
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-right: 8px;
 }
 
 /* Slider */
@@ -296,12 +354,13 @@ nav img {
     position: relative;
     margin: 20px;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .header-slider ul {
     display: flex;
     width: 400%;
-    animation: slide 20s infinite;
+    transition: transform 0.5s ease-in-out;
 }
 
 .header-slider ul li {
@@ -312,26 +371,33 @@ nav img {
 .header-img {
     width: 100%;
     height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .control_prev, .control_next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.2);
-    color: white;
-    padding: 10px;
+    background: rgba(18, 18, 18, 0.7);
+    color: #ff9900;
+    padding: 15px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
+    transition: background 0.3s;
+}
+
+.control_prev:hover, .control_next:hover {
+    background: rgba(18, 18, 18, 1);
 }
 
 .control_prev {
-    left: 10px;
+    left: 15px;
 }
 
 .control_next {
-    right: 10px;
+    right: 15px;
 }
 
 /* Shop Section */
@@ -344,22 +410,23 @@ nav img {
 
 .box {
     width: 23%;
-    height: 350px;
-    background-color: white;
-    padding: 20px 0 15px;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px Rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
 }
 
-.box-content {
-    margin: 0 15px;
+.box:hover {
+    transform: translateY(-5px);
 }
 
 .box-content h2 {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #0f1111;
+    color: #ffffff;
 }
 
 .box-img {
@@ -367,17 +434,51 @@ nav img {
     background-size: cover;
     background-position: center;
     margin-bottom: 15px;
-    border-radius: 4px;
+    border-radius: 8px;
+    position: relative;
 }
 
-.box-content p {
-    color: #007185;
-    font-size: 14px;
+.add-to-cart-form {
+    position: relative;
+    height: 100%;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff9900;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #121212;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    white-space: nowrap;
 }
 
-.box-content p:hover {
-    color: #c7511f;
+.box-img:hover .add-to-cart-btn {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.price {
+    color: #ff9900;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.see-more {
+    color: #cccccc;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.see-more:hover {
+    color: #ff9900;
     text-decoration: underline;
 }
 
@@ -412,45 +513,57 @@ nav img {
 
 .gallery img {
     width: 100%;
-    height: auto;
     max-width: 300px;
-    border-radius: 4px;
-    transition: transform 0.5s;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
-    cursor: pointer;
 }
 
 #backbtn, #frontbtn {
-    width: 30px;
+    width: 40px;
+    height: 40px;
+    background: rgba(18, 18, 18, 0.7);
+    color: #ff9900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+#backbtn:hover, #frontbtn:hover {
+    background: rgba(18, 18, 18, 1);
 }
 
 /* Footer */
 footer {
-    background-color: #232f3e;
+    background: rgba(18, 18, 18, 0.9);
     color: white;
     margin-top: 30px;
 }
 
 .foot-panel1 {
-    background-color: #37475a;
+    background: #232f3e;
     padding: 15px 0;
     text-align: center;
     font-size: 14px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .foot-panel1:hover {
-    background-color: #485769;
+    background: #2c3e50;
 }
 
 .foot-panel2 {
     display: flex;
     justify-content: space-evenly;
-    padding: 40px 0;
+    padding: 40px 20px;
 }
 
 .foot-panel2 ul {
@@ -458,44 +571,56 @@ footer {
 }
 
 .foot-panel2 ul p {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
 .foot-panel2 ul a {
-    display: block;
-    color: #dddddd;
+    display: flex;
+    align-items: center;
+    color: #cccccc;
     text-decoration: none;
     font-size: 14px;
     margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.foot-panel2 ul a i {
+    margin-right: 8px;
+    color: #ff9900;
 }
 
 .foot-panel2 ul a:hover {
-    text-decoration: underline;
+    color: #ff9900;
 }
 
 .foot-panel3 {
-    background-color: #131a22;
+    background: #121212;
     padding: 20px 0;
     text-align: center;
+}
+
+.foot-panel3 .logo {
+    height: 40px;
 }
 
 .foot-panel4 {
-    background-color: #131a22;
+    background: #121212;
     padding: 20px 0;
     text-align: center;
     font-size: 12px;
-    color: #dddddd;
+    color: #cccccc;
 }
 
 .pages a {
-    color: #dddddd;
+    color: #cccccc;
     text-decoration: none;
     margin: 0 10px;
+    transition: color 0.3s;
 }
 
 .pages a:hover {
-    text-decoration: underline;
+    color: #ff9900;
 }
 
 .copy-right {
@@ -557,15 +682,8 @@ footer {
     }
 }
 
-/* Animation */
-@keyframes slide {
-    0% { margin-left: 0; }
-    20% { margin-left: 0; }
-    25% { margin-left: -100%; }
-    45% { margin-left: -100%; }
-    50% { margin-left: -200%; }
-    70% { margin-left: -200%; }
-    75% { margin-left: -300%; }
-    95% { margin-left: -300%; }
-    100% { margin-left: 0; }
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

@@ -20,52 +20,13 @@ $user = $stmt->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopMania! - Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-    <style>
-        .user-profile {
-            position: relative;
-            display: inline-block;
-        }
-        .user-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 4px;
-        }
-        .user-dropdown a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .user-dropdown a:hover {
-            background-color: #f1f1f1;
-        }
-        .user-profile:hover .user-dropdown {
-            display: block;
-        }
-        .welcome-banner {
-            background-color: #232f3e;
-            color: white;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        .account-section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <a href="/"><img src="shop.jpg"></a>
+        <a href="/"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="ShopMania Logo" class="logo"></a>
+        
         <div class="nav-country">
             <i class="fa-solid fa-location-dot"></i>
             <div>
@@ -76,7 +37,7 @@ $user = $stmt->fetch();
         <div class="nav-search">
             <div class="nav-search-category">
                 <p>All</p>
-                <i class="fa-solid fa-circle-chevron-down"></i>
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
             <input type="text" class="nav-search-input" placeholder="Search ShopMania!">
             <div class="nav-search-icon"> 
@@ -84,21 +45,21 @@ $user = $stmt->fetch();
             </div>
         </div>
         <div class="nav-language">
-            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-globe"></i>
             <p>EN</p>
-            <i class="fa-solid fa-circle-chevron-down"></i>
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
         <div class="user-profile nav-text">
             <div>
                 <p>Hello, <?php echo htmlspecialchars($user['username']); ?></p>
-                <h1>Account <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                <h1>Account <i class="fa-solid fa-chevron-down"></i></h1>
             </div>
             <div class="user-dropdown">
-                <a href="dashboard.php">My Account</a>
-                <a href="orders.php">My Orders</a>
-                <a href="wishlist.php">Wishlist</a>
-                <a href="settings.php">Account Settings</a>
-                <a href="logout.php">Logout</a>
+                <a href="dashboard.php"><i class="fa-solid fa-user"></i> My Account</a>
+                <a href="orders.php"><i class="fa-solid fa-box"></i> My Orders</a>
+                <a href="wishlist.php"><i class="fa-solid fa-heart"></i> Wishlist</a>
+                <a href="settings.php"><i class="fa-solid fa-cog"></i> Account Settings</a>
+                <a href="logout.php"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
             </div>
         </div>
         <a href="orders.php" class="nav-text">
@@ -107,6 +68,7 @@ $user = $stmt->fetch();
         </a>
         <a href="cart.php" class="nav-cart">
             <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
             <h4>Cart</h4>
         </a>
     </nav>
@@ -122,13 +84,11 @@ $user = $stmt->fetch();
         <p>Sell</p>
     </div>
 
-    <!-- Welcome Banner with User Info -->
     <div class="welcome-banner">
         <h2>Welcome back, <?php echo htmlspecialchars($user['username']); ?>!</h2>
-        <p>Enjoy your shopping experience at ShopMania!</p>
+        <p>Explore the best deals and exclusive offers at ShopMania!</p>
     </div>
 
-    <!-- Account Section -->
     <div class="account-section">
         <h2><i class="fas fa-user-circle"></i> Account Information</h2>
         <div class="account-details">
@@ -136,97 +96,80 @@ $user = $stmt->fetch();
             <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
             <p><strong>Member since:</strong> <?php echo date('F j, Y', strtotime($user['created_at'])); ?></p>
         </div>
-        <a href="settings.php" class="btn">Edit Account</a>
+        <a href="settings.php" class="btn"><i class="fa-solid fa-edit"></i> Edit Account</a>
     </div>
 
-    <!-- Main Shop Content -->
     <div class="header-slider">
-        <a href="#" class="control_prev"><i class="fa-solid fa-arrow-left"></i></a>
-        <a href="#" class="control_next"><i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="control_prev"><i class="fa-solid fa-chevron-left"></i></a>
+        <a href="#" class="control_next"><i class="fa-solid fa-chevron-right"></i></a>
         <ul>
-            <img src="kitchen.jpg" class="header-img" alt="">
-            <img src="SamplePhoto_3.jpg" class="header-img" alt="">
-            <img src="SamplePhoto_6.jpg" class="header-img" alt="">
-            <img src="SamplePhoto_14.jpg" class="header-img" alt="">
+            <li><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1399&q=80" class="header-img" alt="Electronics"></li>
+            <li><img src="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" class="header-img" alt="Stationery"></li>
+            <li><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" class="header-img" alt="Camera"></li>
+            <li><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" class="header-img" alt="Watch"></li>
         </ul>
     </div>
+
     <div class="shop-section header-box">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Health and Personal Care</h2>
-                <div class="box-img" style="background-image: url('v1.jpg');"></div>
-                <p>See more</p>
+        <?php
+        $stmt = $pdo->prepare("SELECT * FROM products LIMIT 8");
+        $stmt->execute();
+        $products = $stmt->fetchAll();
+        
+        if (empty($products)) {
+            $products = [
+                ['id' => 1, 'name' => 'Wireless Headphones', 'price' => 99.99, 'image_url' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'],
+                ['id' => 2, 'name' => 'Smart Watch', 'price' => 199.99, 'image_url' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1399&q=80'],
+                ['id' => 3, 'name' => 'Bluetooth Speaker', 'price' => 79.99, 'image_url' => 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1489&q=80'],
+                ['id' => 4, 'name' => 'Coffee Maker', 'price' => 129.99, 'image_url' => 'https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'],
+                ['id' => 5, 'name' => 'Running Shoes', 'price' => 89.99, 'image_url' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'],
+                ['id' => 6, 'name' => 'Backpack', 'price' => 49.99, 'image_url' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'],
+                ['id' => 7, 'name' => 'Sunglasses', 'price' => 59.99, 'image_url' => 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=1480&q=80'],
+                ['id' => 8, 'name' => 'Smartphone', 'price' => 699.99, 'image_url' => 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1528&q=80']
+            ];
+        }
+        
+        foreach ($products as $product): ?>
+            <div class="box">
+                <div class="box-content">
+                    <h2><?php echo htmlspecialchars($product['name']); ?></h2>
+                    <div class="box-img" style="background-image: url('<?php echo htmlspecialchars($product['image_url']); ?>');">
+                        <form method="post" action="cart.php" class="add-to-cart-form">
+                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                            <button type="submit" name="add_to_cart" class="add-to-cart-btn">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                    <p class="price">₹<?php echo number_format($product['price'], 2); ?></p>
+                    <a href="#" class="see-more">See more</a>
+                </div>
             </div>
-        </div>
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Electronics Gadgets</h2>
-                <div class="box-img" style="background-image: url('hero.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Beauty</h2>
-                <div class="box-img" style="background-image: url('beauty.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Fashion</h2>
-                <div class="box-img" style="background-image: url('fashion.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box5 box">
-            <div class="box-content">
-                <h2>Grocery</h2>
-                <div class="box-img" style="background-image: url('grocery.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box6 box">
-            <div class="box-content">
-                <h2>Sandals</h2>
-                <div class="box-img" style="background-image: url('foot.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box7 box">
-            <div class="box-content">
-                <h2>Mobile</h2>
-                <div class="box-img" style="background-image: url('phone.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
-        <div class="box8 box">
-            <div class="box-content">
-                <h2>Accessories</h2>
-                <div class="box-img" style="background-image: url('access.jpg');"></div>
-                <p>See more</p>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
+
     <div class="box1">
-        <h2>For a Store with Unique Selling..</h2>
+        <h2>Discover Unique Finds at ShopMania!</h2>
+        <p>Explore our curated collection of exclusive products.</p>
     </div>
+
     <div class="gallery-wrap">
-        <img src="back.jpg" id="backbtn">
+        <div id="backbtn"><i class="fas fa-chevron-left fa-2x"></i></div>
         <div class="gallery">
             <div>
-                <span><img src="ele.jpg"></span>
-                <span><img src="foot1.jpg"></span>
-                <span><img src="home1.jpg"></span>
+                <span><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1526&q=80" alt="Electronics"></span>
+                <span><img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Footwear"></span>
+                <span><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1468&q=80" alt="Home Decor"></span>
             </div>
             <div>
-                <span><img src="groc1.jpg"></span>
-                <span><img src="clo1.jpg"></span>
-                <span><img src="book1.jpg"></span>
+                <span><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Groceries"></span>
+                <span><img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Clothing"></span>
+                <span><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Books"></span>
             </div>
         </div>
-        <img src="front.png" id="frontbtn">
+        <div id="frontbtn"><i class="fas fa-chevron-right fa-2x"></i></div>
     </div>
+
     <footer>
         <div class="foot-panel1">
             Back to top
@@ -234,55 +177,88 @@ $user = $stmt->fetch();
         <div class="foot-panel2">
             <ul>
                 <p>Get to know us</p>
-                <a>Carrers</a>
-                <a>Blog</a>
-                <a>About ShopMania</a>
-                <a>Investor Relations</a>
-                <a>ShopMania Devices</a>
-                <a>ShopMania Science</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">About ShopMania</a>
+                <a href="#">Investor Relations</a>
+                <a href="#">ShopMania Devices</a>
+                <a href="#">ShopMania Science</a>
             </ul>
             <ul>
                 <p>Connect with us</p>
-                <a>Facebook</a>
-                <a>Twitter</a>
-                <a>Instagram</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
             </ul>
             <ul>
                 <p>Make money with us</p>
-                <a>Sell on ShopMania!</a>
-                <a>Protect and Build Your Brand</a>
-                <a>Amazon Global Selling</a>
-                <a>Investor Relations</a>
-                <a>Advertise Your Products </a>
+                <a href="#">Sell on ShopMania!</a>
+                <a href="#">Protect and Build Your Brand</a>
+                <a href="#">Amazon Global Selling</a>
+                <a href="#">Advertise Your Products</a>
             </ul>
             <ul>
                 <p>Let Us Help You</p>
-                <a>Your Account</a>
-                <a>Returns Centre</a>
-                <a>ShopMania! App Download</a>
-                <a>Help</a>
+                <a href="#">Your Account</a>
+                <a href="#">Returns Centre</a>
+                <a href="#">ShopMania! App Download</a>
+                <a href="#">Help</a>
             </ul>
         </div>
         <div class="foot-panel3">
-            <div class="logo"></div>
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="ShopMania Logo" class="logo">
         </div>
         <div class="foot-panel4">
             <div class="pages">
-                <a>Conditions of use</a>
-                <a>Privacy Notice</a>
-                <a>Your ads Privacy Choices</a>
+                <a href="#">Conditions of use</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Your ads Privacy Choices</a>
             </div>
             <div class="copy-right">
-                o 1996-2023, ShopMania!.com, Inc. or its affliations
+                © 1996-2025, ShopMania!.com, Inc. or its affiliates
             </div>
         </div>
     </footer>
-    <script src="dbms.js"></script>
+
     <script>
-        // Add any additional JavaScript needed for the dashboard
         document.addEventListener('DOMContentLoaded', function() {
-            // You can add dashboard-specific JavaScript here
             console.log('Dashboard loaded for user: <?php echo $user["username"]; ?>');
+            
+            // Slider functionality
+            const slider = document.querySelector('.header-slider ul');
+            const slides = document.querySelectorAll('.header-slider li');
+            const prevBtn = document.querySelector('.control_prev');
+            const nextBtn = document.querySelector('.control_next');
+            let currentIndex = 0;
+            
+            function showSlide(index) {
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }
+            
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+                showSlide(currentIndex);
+            });
+            
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                showSlide(currentIndex);
+            });
+
+            // Gallery navigation
+            const gallery = document.querySelector('.gallery');
+            const backBtn = document.querySelector('#backbtn');
+            const frontBtn = document.querySelector('#frontbtn');
+            
+            backBtn.addEventListener('click', () => {
+                gallery.scrollBy({ left: -gallery.offsetWidth, behavior: 'smooth' });
+            });
+            
+            frontBtn.addEventListener('click', () => {
+                gallery.scrollBy({ left: gallery.offsetWidth, behavior: 'smooth' });
+            });
         });
     </script>
 </body>

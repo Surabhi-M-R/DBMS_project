@@ -77,32 +77,21 @@ foreach ($cart_items as $item) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopMania! - Your Cart</title>
+    <link rel="stylesheet" href="dashboard.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f6f6f6;
-            margin: 0;
-            padding: 20px;
-        }
-        
         .cart-container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .cart-header {
             border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
             margin-bottom: 20px;
-        }
-        
-        .cart-header h1 {
-            margin: 0;
-            color: #333;
         }
         
         .cart-item {
@@ -126,7 +115,6 @@ foreach ($cart_items as $item) {
         .cart-item-title {
             font-size: 18px;
             margin-bottom: 5px;
-            color: #333;
         }
         
         .cart-item-price {
@@ -138,28 +126,12 @@ foreach ($cart_items as $item) {
         .cart-item-quantity {
             display: flex;
             align-items: center;
-            margin: 10px 0;
         }
         
         .quantity-input {
             width: 50px;
             text-align: center;
             margin: 0 10px;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        .cart-item-quantity button {
-            padding: 5px 10px;
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .cart-item-quantity button:hover {
-            background: #e0e0e0;
         }
         
         .cart-item-actions {
@@ -193,7 +165,6 @@ foreach ($cart_items as $item) {
             font-size: 20px;
             font-weight: bold;
             margin: 10px 0;
-            color: #333;
         }
         
         .checkout-btn {
@@ -203,9 +174,6 @@ foreach ($cart_items as $item) {
             border-radius: 3px;
             cursor: pointer;
             font-size: 16px;
-            color: #111;
-            text-decoration: none;
-            display: inline-block;
         }
         
         .checkout-btn:hover {
@@ -217,32 +185,18 @@ foreach ($cart_items as $item) {
             padding: 50px;
         }
         
-        .empty-cart h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .empty-cart p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
         .continue-shopping {
             display: inline-block;
             margin-top: 20px;
             color: #0066c0;
             text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #0066c0;
-            border-radius: 3px;
-        }
-        
-        .continue-shopping:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <!-- Include your existing navigation from dashboard.php -->
+    <?php include 'nav.php'; ?>
+    
     <div class="cart-container">
         <div class="cart-header">
             <h1>Shopping Cart</h1>
@@ -257,10 +211,7 @@ foreach ($cart_items as $item) {
         <?php else: ?>
             <?php foreach ($cart_items as $item): ?>
                 <div class="cart-item">
-                    <img src="<?php echo htmlspecialchars($item['image_url']); ?>" 
-                         alt="<?php echo htmlspecialchars($item['name']); ?>" 
-                         class="cart-item-image"
-                         onerror="this.src='https://via.placeholder.com/100x100?text=Product+Image'">
+                    <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="cart-item-image">
                     <div class="cart-item-details">
                         <div class="cart-item-title"><?php echo htmlspecialchars($item['name']); ?></div>
                         <div class="cart-item-price">₹<?php echo number_format($item['price'], 2); ?></div>
@@ -283,7 +234,7 @@ foreach ($cart_items as $item) {
             
             <div class="cart-summary">
                 <div class="total-amount">Total: ₹<?php echo number_format($total, 2); ?></div>
-                <a href="checkout.php" class="checkout-btn">Proceed to Checkout</a>     
+                <a href="checkout.php" class="checkout-btn">Proceed to Checkout</a>
             </div>
         <?php endif; ?>
     </div>
@@ -291,36 +242,32 @@ foreach ($cart_items as $item) {
     <script>
         function updateQuantity(button) {
             const input = button.parentElement.querySelector('.quantity-input');
-            const form = button.closest('form');
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = 'cart.php';
             
-            // Create hidden inputs if they don't exist
-            if (!form.querySelector('[name="cart_id"]')) {
-                const cartIdInput = document.createElement('input');
-                cartIdInput.type = 'hidden';
-                cartIdInput.name = 'cart_id';
-                cartIdInput.value = input.dataset.cartId;
-                form.appendChild(cartIdInput);
-            }
+            const cartIdInput = document.createElement('input');
+            cartIdInput.type = 'hidden';
+            cartIdInput.name = 'cart_id';
+            cartIdInput.value = input.dataset.cartId;
             
-            if (!form.querySelector('[name="update_quantity"]')) {
-                const updateInput = document.createElement('input');
-                updateInput.type = 'hidden';
-                updateInput.name = 'update_quantity';
-                updateInput.value = '1';
-                form.appendChild(updateInput);
-            }
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'hidden';
+            quantityInput.name = 'quantity';
+            quantityInput.value = input.value;
             
+            const updateInput = document.createElement('input');
+            updateInput.type = 'hidden';
+            updateInput.name = 'update_quantity';
+            updateInput.value = '1';
+            
+            form.appendChild(cartIdInput);
+            form.appendChild(quantityInput);
+            form.appendChild(updateInput);
+            
+            document.body.appendChild(form);
             form.submit();
         }
-
-        // Handle image errors if the onerror attribute didn't work
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.cart-item-image').forEach(img => {
-                img.onerror = function() {
-                    this.src = 'https://via.placeholder.com/100x100?text=Product+Image';
-                };
-            });
-        });
     </script>
 </body>
 </html>

@@ -29,7 +29,7 @@ $user = $stmt->fetch();
     
     <nav class="glass-nav">
         <a href="/" class="logo-container">
-            <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNob3BwaW5nJTIwbG9nb3xlbnwwfHwwfHx8MA%3D%3D" alt="Sushop Logo" class="logo">
+            <img src="https://i.imgur.com/Jx7A7XW.png" alt="Sushop Logo" class="logo">
             <span class="logo-text">Sushop</span>
         </a>
         
@@ -109,7 +109,7 @@ $user = $stmt->fetch();
             </div>
         </div>
         <div class="welcome-image">
-            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2hvcHBpbmd8ZW58MHx8MHx8fDA%3D" alt="Welcome Image">
+            <img src="https://i.imgur.com/9QZ2zJj.jpg" alt="Welcome Image" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
         </div>
     </div>
 
@@ -136,11 +136,11 @@ $user = $stmt->fetch();
         <a href="#" class="control_prev"><i class="fa-solid fa-chevron-left"></i></a>
         <a href="#" class="control_next"><i class="fa-solid fa-chevron-right"></i></a>
         <ul>
-            <li><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjYm9va3xlbnwwfHwwfHx8MA%3D%3D" class="header-img" alt="Electronics"></li>
-            <li><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fHww" class="header-img" alt="Laptop"></li>
-            <li><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtZXJhfGVufDB8fDB8fHww" class="header-img" alt="Camera"></li>
-            <li><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHN8ZW58MHx8MHx8fDA%3D" class="header-img" alt="Watch"></li>
-            <li><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3RzfGVufDB8fDB8fHww" class="header-img" alt="Smartwatch"></li>
+            <li><img src="https://i.imgur.com/abc123.jpg" class="header-img" alt="Electronics" onerror="this.src='https://i.imgur.com/placeholder.jpg'"></li>
+            <li><img src="https://i.imgur.com/def456.jpg" class="header-img" alt="Stationery" onerror="this.src='https://i.imgur.com/placeholder.jpg'"></li>
+            <li><img src="https://i.imgur.com/ghi789.jpg" class="header-img" alt="Camera" onerror="this.src='https://i.imgur.com/placeholder.jpg'"></li>
+            <li><img src="https://i.imgur.com/jkl012.jpg" class="header-img" alt="Watch" onerror="this.src='https://i.imgur.com/placeholder.jpg'"></li>
+            <li><img src="https://i.imgur.com/mno345.jpg" class="header-img" alt="Smartwatch" onerror="this.src='https://i.imgur.com/placeholder.jpg'"></li>
         </ul>
         <div class="slider-dots"></div>
     </div>
@@ -153,14 +153,14 @@ $user = $stmt->fetch();
         
         if (empty($products)) {
             $products = [
-                ['id' => 1, 'name' => 'Wireless Headphones', 'price' => 99.99, 'image_url' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D'],
-                ['id' => 2, 'name' => 'Smart Watch', 'price' => 199.99, 'image_url' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHN8ZW58MHx8MHx8fDA%3D'],
-                ['id' => 3, 'name' => 'Bluetooth Speaker', 'price' => 79.99, 'image_url' => 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D'],
-                ['id' => 4, 'name' => 'Coffee Maker', 'price' => 129.99, 'image_url' => 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29mZmVlJTIwbWFrZXJ8ZW58MHx8MHx8fDA%3D'],
-                ['id' => 5, 'name' => 'Running Shoes', 'price' => 89.99, 'image_url' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D'],
-                ['id' => 6, 'name' => 'Backpack', 'price' => 49.99, 'image_url' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja3BhY2t8ZW58MHx8MHx8fDA%3D'],
-                ['id' => 7, 'name' => 'Sunglasses', 'price' => 59.99, 'image_url' => 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VuZ2xhc3Nlc3xlbnwwfHwwfHx8MA%3D%3D'],
-                ['id' => 8, 'name' => 'Smartphone', 'price' => 699.99, 'image_url' => 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D']
+                ['id' => 1, 'name' => 'Wireless Headphones', 'price' => 99.99, 'image_url' => 'https://i.imgur.com/headphones.jpg'],
+                ['id' => 2, 'name' => 'Smart Watch', 'price' => 199.99, 'image_url' => 'https://i.imgur.com/smartwatch.jpg'],
+                ['id' => 3, 'name' => 'Bluetooth Speaker', 'price' => 79.99, 'image_url' => 'https://i.imgur.com/speaker.jpg'],
+                ['id' => 4, 'name' => 'Coffee Maker', 'price' => 129.99, 'image_url' => 'https://i.imgur.com/coffeemaker.jpg'],
+                ['id' => 5, 'name' => 'Running Shoes', 'price' => 89.99, 'image_url' => 'https://i.imgur.com/shoes.jpg'],
+                ['id' => 6, 'name' => 'Backpack', 'price' => 49.99, 'image_url' => 'https://i.imgur.com/backpack.jpg'],
+                ['id' => 7, 'name' => 'Sunglasses', 'price' => 59.99, 'image_url' => 'https://i.imgur.com/sunglasses.jpg'],
+                ['id' => 8, 'name' => 'Smartphone', 'price' => 699.99, 'image_url' => 'https://i.imgur.com/smartphone.jpg']
             ];
         }
         
@@ -174,16 +174,12 @@ $user = $stmt->fetch();
                         </div>
                     </div>
                     <div class="box-img" style="background-image: url('<?php echo htmlspecialchars($product['image_url']); ?>');">
-                    
-<form method="post" action="cart.php" class="add-to-cart-form">
-    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-    <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($product['name']); ?>">
-    <input type="hidden" name="product_price" value="<?php echo $product['price']; ?>">
-    <input type="hidden" name="product_image" value="<?php echo htmlspecialchars($product['image_url']); ?>">
-    <button type="submit" name="add_to_cart" class="add-to-cart-btn purple-gradient">
-        <i class="fa-solid fa-cart-plus"></i> Add to Cart
-    </button>
-</form>
+                        <form method="post" action="cart.php" class="add-to-cart-form">
+                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                            <button type="submit" name="add_to_cart" class="add-to-cart-btn purple-gradient">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
                     </div>
                     <div class="box-footer">
                         <p class="price">₹<?php echo number_format($product['price'], 2); ?></p>
@@ -209,29 +205,29 @@ $user = $stmt->fetch();
             <a href="#" class="btn white-btn">Shop Now</a>
         </div>
         <div class="promo-image">
-            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2hvcHBpbmd8ZW58MHx8MHx8fDA%3D" alt="Promo Image">
+            <img src="https://i.imgur.com/promo123.jpg" alt="Promo Image" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
         </div>
     </div>
 
     <div class="categories-section">
         <h2 class="section-title"><i class="fas fa-th-large"></i> Shop by Categories</h2>
         <div class="categories-grid">
-            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjYm9va3xlbnwwfHwwfHx8MA%3D%3D')">
+            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://i.imgur.com/electronics.jpg')">
                 <h3>Electronics</h3>
                 <p>200+ Products</p>
                 <a href="#">Shop Now <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D')">
+            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://i.imgur.com/fashion.jpg')">
                 <h3>Fashion</h3>
                 <p>500+ Products</p>
                 <a href="#">Shop Now <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D')">
+            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://i.imgur.com/homekitchen.jpg')">
                 <h3>Home & Kitchen</h3>
                 <p>350+ Products</p>
                 <a href="#">Shop Now <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JvY2VyaWVzfGVufDB8fDB8fHww')">
+            <div class="category-card glass-card" style="background-image: linear-gradient(rgba(102, 45, 145, 0.7), rgba(102, 45, 145, 0.7)), url('https://i.imgur.com/groceries.jpg')">
                 <h3>Groceries</h3>
                 <p>1000+ Products</p>
                 <a href="#">Shop Now <i class="fas fa-arrow-right"></i></a>
@@ -244,7 +240,7 @@ $user = $stmt->fetch();
         <div class="testimonials-container">
             <div class="testimonial-card glass-card">
                 <div class="testimonial-header">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww" alt="Customer">
+                    <img src="customer1.jpg" alt="Customer" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
                     <div>
                         <h4>JOHANAZ NADAF</h4>
                         <div class="rating">
@@ -260,7 +256,7 @@ $user = $stmt->fetch();
             </div>
             <div class="testimonial-card glass-card">
                 <div class="testimonial-header">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww" alt="Customer">
+                    <img src="customer2.jpg" alt="Customer" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
                     <div>
                         <h4>Surabhi M R</h4>
                         <div class="rating">
@@ -276,7 +272,7 @@ $user = $stmt->fetch();
             </div>
             <div class="testimonial-card glass-card">
                 <div class="testimonial-header">
-                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fHww" alt="Customer">
+                    <img src="https://i.imgur.com/customer3.jpg" alt="Customer" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
                     <div>
                         <h4>Arfa</h4>
                         <div class="rating">
@@ -333,7 +329,7 @@ $user = $stmt->fetch();
         </div>
         <div class="footer-middle">
             <div class="footer-logo">
-                <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNob3BwaW5nJTIwbG9nb3xlbnwwfHwwfHx8MA%3D%3D" alt="Sushop Logo">
+                <img src="https://i.imgur.com/Jx7A7XW.png" alt="Sushop Logo" onerror="this.src='https://i.imgur.com/placeholder.jpg'">
                 <span>Sushop</span>
             </div>
             <div class="footer-social">
@@ -360,29 +356,7 @@ $user = $stmt->fetch();
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Dashboard loaded for user: <?php echo $user["username"]; ?>');
-            // Validate add to cart forms
-document.querySelectorAll('.add-to-cart-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        const productId = this.querySelector('[name="product_id"]').value;
-        if (!productId) {
-            e.preventDefault();
-            alert('Product ID is missing. Please try again.');
-            return false;
-        }
-        
-        // Optional: Add animation
-        const btn = this.querySelector('button');
-        gsap.to(btn, {
-            scale: 1.1,
-            duration: 0.2,
-            yoyo: true,
-            repeat: 1
-        });
-    });
-});
-
-
-
+            
             // Slider functionality
             const slider = document.querySelector('.header-slider ul');
             const slides = document.querySelectorAll('.header-slider li');
@@ -461,15 +435,13 @@ document.querySelectorAll('.add-to-cart-form').forEach(form => {
             const backBtn = document.querySelector('#backbtn');
             const frontBtn = document.querySelector('#frontbtn');
             
-            if (gallery && backBtn && frontBtn) {
-                backBtn.addEventListener('click', () => {
-                    gallery.scrollBy({ left: -gallery.offsetWidth, behavior: 'smooth' });
-                });
-                
-                frontBtn.addEventListener('click', () => {
-                    gallery.scrollBy({ left: gallery.offsetWidth, behavior: 'smooth' });
-                });
-            }
+            backBtn.addEventListener('click', () => {
+                gallery.scrollBy({ left: -gallery.offsetWidth, behavior: 'smooth' });
+            });
+            
+            frontBtn.addEventListener('click', () => {
+                gallery.scrollBy({ left: gallery.offsetWidth, behavior: 'smooth' });
+            });
             
             // Wishlist toggle
             document.querySelectorAll('.wishlist-icon').forEach(icon => {
@@ -532,9 +504,7 @@ document.querySelectorAll('.add-to-cart-form').forEach(form => {
             // Handle image errors
             document.querySelectorAll('img').forEach(img => {
                 img.addEventListener('error', function() {
-                    const width = this.width || 300;
-                    const height = this.height || 200;
-                    this.src = `https://via.placeholder.com/${width}x${height}?text=Image+Not+Available`;
+                    this.src = 'https://i.imgur.com/placeholder.jpg';
                     this.alt = 'Placeholder image';
                 });
             });

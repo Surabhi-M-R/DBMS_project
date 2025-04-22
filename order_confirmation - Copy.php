@@ -47,63 +47,45 @@ $order_items = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopMania! - Order Confirmation</title>
+    <link rel="stylesheet" href="dashboard.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-        }
-
         .confirmation-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             text-align: center;
         }
-
+        
+        .confirmation-header {
+            margin-bottom: 30px;
+        }
+        
         .confirmation-icon {
-            font-size: 70px;
+            font-size: 60px;
             color: #4CAF50;
             margin-bottom: 20px;
         }
-
-        .confirmation-header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .confirmation-header p {
-            font-size: 16px;
-            color: #666;
-        }
-
+        
         .order-details {
             text-align: left;
-            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto 30px;
             padding: 20px;
             background-color: #f9f9f9;
-            border-radius: 6px;
+            border-radius: 4px;
         }
-
-        .order-details h3 {
-            margin-bottom: 20px;
-            color: #444;
-        }
-
+        
         .order-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
-            font-size: 16px;
         }
-
+        
         .order-total {
             font-size: 18px;
             font-weight: bold;
@@ -111,41 +93,38 @@ $order_items = $stmt->fetchAll();
             padding-top: 15px;
             border-top: 1px solid #ddd;
         }
-
-        .order-details p {
-            margin: 10px 0;
-            font-size: 15px;
-            color: #333;
-        }
-
+        
         .continue-shopping {
             display: inline-block;
             background-color: #f0c14b;
             border: 1px solid #a88734;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 3px;
             color: #111;
             text-decoration: none;
             font-size: 16px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-
+        
         .continue-shopping:hover {
             background-color: #ddb347;
         }
     </style>
 </head>
 <body>
-
+    <?php include 'nav.php'; ?>
+    
     <div class="confirmation-container">
-        <div class="confirmation-icon">✔️</div>
-
+        <div class="confirmation-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        
         <div class="confirmation-header">
             <h1>Order Confirmed!</h1>
             <p>Thank you for your purchase. Your order has been received and is being processed.</p>
-            <p><strong>Order ID:</strong> <?php echo htmlspecialchars($order['id']); ?></p>
+            <p>Order ID: <?php echo htmlspecialchars($order['id']); ?></p>
         </div>
-
+        
         <div class="order-details">
             <h3>Order Summary</h3>
             <?php foreach ($order_items as $item): ?>
@@ -154,19 +133,18 @@ $order_items = $stmt->fetchAll();
                     <span>₹<?php echo number_format($item['price_per_unit'] * $item['quantity'], 2); ?></span>
                 </div>
             <?php endforeach; ?>
-
+            
             <div class="order-total">
                 <span>Total:</span>
                 <span>₹<?php echo number_format($order['total_amount'], 2); ?></span>
             </div>
-
+            
             <p><strong>Shipping Address:</strong> <?php echo htmlspecialchars($order['shipping_address']); ?></p>
             <p><strong>Payment Method:</strong> <?php echo htmlspecialchars($order['payment_method']); ?></p>
             <p><strong>Status:</strong> <?php echo htmlspecialchars($order['status']); ?></p>
         </div>
-
+        
         <a href="dashboard.php" class="continue-shopping">Continue Shopping</a>
     </div>
-
 </body>
 </html>
